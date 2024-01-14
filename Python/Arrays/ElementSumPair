@@ -1,0 +1,19 @@
+def getSumPairs(sourceArray, targetValue):
+    hashTable = []
+    resultArray = []
+    for i in range(0, max(sourceArray)):
+        hashTable.append(0)
+    for i in sourceArray:
+        temp = targetValue -i 
+        if temp<0:
+            continue
+        if hashTable[temp] == 1:
+            resultArray.append("({},{})".format(i,temp))
+        else:
+            hashTable[i] = 1
+    return resultArray if len(resultArray)!=0 else "No Pairs Found"
+
+
+targetValue = 34
+sourceArray = { 17, 17, 18, 16, 33, 1, 2, 32, 20, 14, 67, 15 };
+print(getSumPairs(sourceArray, targetValue))
